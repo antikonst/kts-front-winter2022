@@ -1,0 +1,202 @@
+:root {
+    --main-bg-color: #FFFFFF;
+    --avatar-bg-color: #FF5555;
+    --disabled-color: #D9D9D9;
+    --txt-color: #7E7E7E;
+    --bg-color: #000000;
+    --hover-color: #208FBF;
+    --out-color: #F9F9F9;
+    --shadow-color: rgba(182, 182, 182, 0.25);
+}
+
+.row{
+    padding: 20px;
+    display: grid;
+    grid-template-rows: auto;
+    grid-row-gap: 16px;
+}
+
+.input_search{
+    width: 295px;
+    height: 50px;
+    margin-bottom: 4px;
+    background: var(--main-bg-color);
+    border: 1px solid var(--disabled-color);
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: var(--bg-color);
+    padding-left: 12px;
+    padding-right: 75px;
+}
+
+.input_search::placeholder{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: var(--txt-color);
+}
+
+.input_search:focus{
+    outline: var(--avatar-bg-color);
+    background: var(--main-bg-color);
+    border: 1px solid var(--avatar-bg-color);
+    color: var(--bg-color);
+}
+
+.input_search:disabled{
+    background: var(--out-color);
+    border: 1px solid var(--disabled-color);
+    color: var(--txt-color);
+}
+
+.search_img{
+    width: 50px;
+    height: 50px;
+    background: var(--avatar-bg-color);
+    border-radius: 6px;
+    background-image: url(search.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: url(cursor.svg), pointer;
+}
+
+.search_img:hover{
+    opacity: 0.6;
+}
+
+.search_img:disabled{
+    background: var(--disabled-color);
+}
+
+.git_repo_tile{
+    display:flex;
+    /* margin-bottom: 16px; */
+    padding: 11px;
+    width: 357px;
+    height: 104px;
+    background: var(--main-bg-color);
+    border: 1px solid var(--disabled-color);
+    box-sizing: border-box;
+    border-radius: 6px;
+    cursor: url(cursor.svg), pointer;
+}
+
+.git_repo_tile:hover{
+    box-shadow: 0px 2px 6px var(--shadow-color);
+}
+
+.Avatar{
+    width: 80px;
+    height: 80px;
+}
+
+.avatar{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    background: url(ava1.png);
+    background-size: contain;
+    border-radius: 40px;
+    z-index: 2;
+}
+
+.repo_first_letter{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    color: var(--main-bg-color);
+    z-index: 1;
+}
+
+.default_background{
+    background: var(--avatar-bg-color);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Content{
+    display: inline;
+    width: 241px;
+    height: 59px;
+    padding-left: 12px;
+    margin: auto;
+}
+
+.repo_name{
+    height: 19px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--bg-color);
+    width: 241px;
+/* long text... */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.org_name{
+    height: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--txt-color);
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.org_name:hover{
+    color: var(--hover-color);
+}
+
+.params_two{
+    display:flex;
+    height: 19px;
+}
+
+.star{
+    width: 12.96px;
+    height: 12.39px;
+    background: url(star.svg);
+    vertical-align: middle;
+    background-repeat: no-repeat;
+}
+
+.t123{
+    width: 24px;
+    height: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: var(--txt-color);
+    padding-left: 4.52px;
+}
+
+.update{
+    height: 16px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--txt-color);
+    padding-left: 20px;
+}
+
+.grid_search{
+    width: 357px;
+    display: grid;
+    grid-template-columns: 1fr 50px;
+}
