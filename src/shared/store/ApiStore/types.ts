@@ -20,10 +20,12 @@ export type RequestParams<ReqT> = {
 }
 
 // Перечисление статусов ответа
+
 export enum StatusHTTP {
     // TODO: заполнить
     OK = 200,
     FORBIDDEN = 403,
+    ERROR = "ERROR"
 }
 
 // Ответ API

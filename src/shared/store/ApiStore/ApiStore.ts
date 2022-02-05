@@ -1,4 +1,4 @@
-import {ApiResponse, IApiStore, RequestParams} from "./types";
+import {ApiResponse, HTTPMethod, IApiStore, RequestParams, StatusHTTP} from "./types";
 import qs from "qs";
 
 export default class ApiStore implements IApiStore {
@@ -9,14 +9,63 @@ export default class ApiStore implements IApiStore {
         this.baseUrl=baseUrl
     }
 
-    request<SuccessT, ErrorT = any, ReqT = {}>(params: RequestParams<ReqT>): Promise<ApiResponse<SuccessT, ErrorT>> {
-        // TODO: Напишите здесь код, который с помощью fetch будет делать запрос
-        let result = fetch(this.baseUrl, {
-            method: params.method.toString()
-        }).then((response) => {
-            return response.json();
-        });
+    // формируем запрос, который хотим отправить
+    private getReqData<ReqT>(params: RequestParams<ReqT>): [string, RequestInit] { 
+        let endpoint = `${this.baseUrl}${params.endpoint}`   // шаблонная строка
+        
+        // формируем объект запроса 
+        const req: RequestInit = {
+            method: params.method,
+            headers: { ...params.headers }
+        }
 
-        return result;
+        // формируем query-строку
+        if (params.method === HTTPMethod.GET) {
+            endpoint = `${endpoint}?${qs.stringify(params.data)}`
+        }
+
+        // формируем тело запроса
+        if (params.method === HTTPMethod.POST) {
+            req.body = JSON.stringify(params.data)
+            req.headers = {
+                ...req.headers,
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        }
+
+        return [endpoint, req]
+    }
+
+
+    async request<SuccessT, ErrorT = any, ReqT = {}>(params: RequestParams<ReqT>): Promise<ApiResponse<SuccessT, ErrorT>> {
+        // TODO: Напишите здесь код, который с помощью fetch будет делать запрос
+        
+        try {
+            const [endpoint, req] = this.getReqData(params)
+
+            const response = await fetch(endpoint, req);
+
+            // обрабатываем запрос, возвращаем данные из ApiResponse
+            if (response.ok) {
+                return {
+                    success: true,
+                    data: await response.json(),
+                    status: response.status
+                }
+            }
+
+            return {
+                success: false,
+                status: response.status,
+                data: await response.json()
+            }
+        } catch (error) {
+            return {
+                success: false,
+                data: error,
+                status: StatusHTTP.ERROR
+            }
+        }
+
     }
 }
