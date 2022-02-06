@@ -25,7 +25,8 @@ export enum StatusHTTP {
     // TODO: заполнить
     OK = 200,
     FORBIDDEN = 403,
-    ERROR = "ERROR"
+    ERROR = "ERROR",
+    INTERNAL_SERVER_ERROR = 500,
 }
 
 // Ответ API
