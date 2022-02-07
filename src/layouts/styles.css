@@ -1,6 +1,6 @@
 :root {
     --main-bg-color: #FFFFFF;
-    --avatar-bg-color: #FF5555;
+    --git-repo-tile__avatar-bg-color: #FF5555;
     --disabled-color: #D9D9D9;
     --txt-color: #7E7E7E;
     --bg-color: #000000;
@@ -16,7 +16,7 @@
     grid-row-gap: 16px;
 }
 
-.input_search{
+.grid-search__input{
     width: 295px;
     height: 50px;
     margin-bottom: 4px;
@@ -33,7 +33,7 @@
     padding-right: 75px;
 }
 
-.input_search::placeholder{
+.grid-search__input::placeholder{
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -41,41 +41,40 @@
     color: var(--txt-color);
 }
 
-.input_search:focus{
-    outline: var(--avatar-bg-color);
+.grid-search__input:focus{
+    outline: var(--git-repo-tile__avatar-bg-color);
     background: var(--main-bg-color);
-    border: 1px solid var(--avatar-bg-color);
+    border: 1px solid var(--git-repo-tile__avatar-bg-color);
     color: var(--bg-color);
 }
 
-.input_search:disabled{
+.grid-search__input:disabled{
     background: var(--out-color);
     border: 1px solid var(--disabled-color);
     color: var(--txt-color);
 }
 
-.search_img{
+.grid-search__img{
     width: 50px;
     height: 50px;
-    background: var(--avatar-bg-color);
+    background: var(--git-repo-tile__avatar-bg-color);
     border-radius: 6px;
     background-image: url(search.svg);
     background-repeat: no-repeat;
     background-position: center;
-    cursor: url(cursor.svg), pointer;
+    cursor: pointer;
 }
 
-.search_img:hover{
+.grid-search__img:hover{
     opacity: 0.6;
 }
 
-.search_img:disabled{
+.grid-search__img:disabled{
     background: var(--disabled-color);
 }
 
-.git_repo_tile{
+.git-repo-tile{
     display:flex;
-    /* margin-bottom: 16px; */
     padding: 11px;
     width: 357px;
     height: 104px;
@@ -83,19 +82,14 @@
     border: 1px solid var(--disabled-color);
     box-sizing: border-box;
     border-radius: 6px;
-    cursor: url(cursor.svg), pointer;
+    cursor: pointer;
 }
 
-.git_repo_tile:hover{
+.git-repo-tile:hover{
     box-shadow: 0px 2px 6px var(--shadow-color);
 }
 
-.Avatar{
-    width: 80px;
-    height: 80px;
-}
-
-.avatar{
+.git-repo-tile__avatar{
     width: 80px;
     height: 80px;
     position: absolute;
@@ -105,7 +99,7 @@
     z-index: 2;
 }
 
-.repo_first_letter{
+.git-repo-tile__background-first-letter{
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -114,15 +108,17 @@
     z-index: 1;
 }
 
-.default_background{
-    background: var(--avatar-bg-color);
+.git-repo-tile__background{
+    width: 80px;
+    height: 80px;
+    background: var(--git-repo-tile__avatar-bg-color);
     border-radius: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.Content{
+.git-repo-tile__content{
     display: inline;
     width: 241px;
     height: 59px;
@@ -130,7 +126,7 @@
     margin: auto;
 }
 
-.repo_name{
+.git-repo-tile__content-repo-name{
     height: 19px;
     font-family: Roboto;
     font-style: normal;
@@ -144,7 +140,7 @@
   text-overflow: ellipsis;
 }
 
-.org_name{
+.git-repo-tile__content-org-name{
     height: 16px;
     font-family: Roboto;
     font-style: normal;
@@ -156,24 +152,24 @@
     margin-bottom: 4px;
 }
 
-.org_name:hover{
+.git-repo-tile__content-org-name:hover{
     color: var(--hover-color);
 }
 
-.params_two{
+.git-repo-tile__content-params-name{
     display:flex;
     height: 19px;
 }
 
-.star{
-    width: 12.96px;
-    height: 12.39px;
+.git-repo-tile__star{
+    width: 13px;
+    height: 12px;
     background: url(star.svg);
     vertical-align: middle;
     background-repeat: no-repeat;
 }
 
-.t123{
+.git-repo-tile__num-star{
     width: 24px;
     height: 16px;
     font-family: Roboto;
@@ -184,7 +180,7 @@
     padding-left: 4.52px;
 }
 
-.update{
+.git-repo-tile__update{
     height: 16px;
     font-family: Roboto;
     font-style: normal;
@@ -195,7 +191,7 @@
     padding-left: 20px;
 }
 
-.grid_search{
+.grid-search{
     width: 357px;
     display: grid;
     grid-template-columns: 1fr 50px;
